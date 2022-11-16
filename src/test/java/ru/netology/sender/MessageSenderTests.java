@@ -1,4 +1,4 @@
-package ru.netology;
+package ru.netology.sender;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -7,7 +7,6 @@ import ru.netology.entity.Country;
 import ru.netology.entity.Location;
 import ru.netology.geo.GeoService;
 import ru.netology.i18n.LocalizationService;
-import ru.netology.sender.MessageSenderImpl;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,7 +23,7 @@ public class MessageSenderTests {
                 .thenReturn("Добро пожаловать");
 
         MessageSenderImpl messageSender = new MessageSenderImpl(geoService, localizationService);
-        Map<String, String> headers = new HashMap<String, String>();
+        Map<String, String> headers = new HashMap<>();
         headers.put(MessageSenderImpl.IP_ADDRESS_HEADER, "172.123.12.19");
         String testResult = messageSender.send(headers);
 
@@ -41,7 +40,7 @@ public class MessageSenderTests {
                 .thenReturn("Welcome");
 
         MessageSenderImpl messageSender = new MessageSenderImpl(geoService, localizationService);
-        Map<String, String> headers = new HashMap<String, String>();
+        Map<String, String> headers = new HashMap<>();
         headers.put(MessageSenderImpl.IP_ADDRESS_HEADER, "96.44.183.149");
         String testResult = messageSender.send(headers);
 
